@@ -1,0 +1,9 @@
+
+<!-- newsletter_list.html -->
+
+<h1>Список рассылок</h1>
+<ul>
+{% for newsletter in newsletters %}
+    <li>{{ newsletter.time }} - {{ newsletter.status }}</li>
+{% endfor %}
+</ul>
