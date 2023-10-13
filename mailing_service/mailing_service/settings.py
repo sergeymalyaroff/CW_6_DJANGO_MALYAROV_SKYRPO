@@ -1,3 +1,5 @@
+# settings.py
+
 """
 Django settings for mailing_service project.
 
@@ -46,6 +48,8 @@ INSTALLED_APPS = [
     'newsletters',
     #пользователи:
     'users',
+    #блог:
+    'blog'
 
 
 ]
@@ -68,7 +72,8 @@ ROOT_URLCONF = 'mailing_service.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
+
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -158,7 +163,7 @@ AUTH_USER_MODEL = 'users.CustomUser'
 AUTHENTICATION_BACKENDS = (
 
     'allauth.account.auth_backends.AuthenticationBackend',
-    'path.to.your.EmailBackend',
+
 
 )
 
