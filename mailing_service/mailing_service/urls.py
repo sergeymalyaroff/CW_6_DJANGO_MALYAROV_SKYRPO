@@ -27,6 +27,8 @@ urlpatterns = [
     path('', include('newsletters.urls')),  # URL для приложения newsletters
     path('accounts/', include('allauth.urls')), #регистрация пользователей
     path('users/', include('users.urls')),  # маршруты из приложения users
-    path('', blog_views.homepage, name='homepage'), #путь к главной странице
+    path('blog/', blog_views.some_view, name='blog_home'),
+    path('post/<int:post_id>/', blog_views.blog_post_detail, name='blog_post_detail'), #деткльное представление статьи
+    path('blog/', include('blog.urls')),
 
 ]
