@@ -172,3 +172,19 @@ ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_USERNAME_REQUIRED = False
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+
+
+
+
+
+#кеширование
+
+# settings.py
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '127.0.0.1:11211',
+        'TIMEOUT': 300,  # время жизни кеша в секундах, по умолчанию 5 минут
+    }
+}

@@ -6,7 +6,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ post.title }}</title>
-
 </head>
 <body>
     <header>
@@ -14,16 +13,13 @@
     </header>
 
     <nav>
-
         <ul>
             <li><a href="{% url 'homepage' %}">Главная</a></li>
             <li><a href="{% url 'blog_list' %}">Блог</a></li>
-
         </ul>
     </nav>
 
     <main>
-        <!-- Основное содержимое страницы -->
         <img src="{{ post.image.url }}" alt="{{ post.title }}" width="300">
         <p>{{ post.content }}</p>
         <p>Дата публикации: {{ post.publish_date }}</p>
@@ -31,7 +27,6 @@
     </main>
 
     <footer>
-        <!-- Подвал сайта -->
         <p>&copy; 2023 Курсовая работа для SKYPro "Основы веб-разработки на Django". Все права защищены.</p>
     </footer>
 </body>

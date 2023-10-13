@@ -1,0 +1,38 @@
+<!-- blog_list.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог</title>
+    <!-- Здесь можно добавить ссылки на стили, скрипты и другие ресурсы -->
+</head>
+<body>
+    <header>
+        <h1>Блог</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="{% url 'homepage' %}">Главная</a></li>
+            <li><a href="{% url 'admin:index' %}">Админ-панель</a></li>
+            <li><a href="{% url 'newsletter_list' %}">Список рассылок</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <!-- Основное содержимое страницы -->
+        {% for post in posts %}
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content|truncatechars:100 }}</p>  <!-- Отображаем первые 100 символов статьи -->
+            <a href="{% url 'blog_post_detail' post.id %}">Читать далее</a>
+        {% endfor %}
+    </main>
+
+    <footer>
+        <!-- Подвал сайта -->
+        <p>&copy; 2023 Курсовая работа для SKYPro "Основы веб-разработки на Django". Все права защищены.</p>
+    </footer>
+</body>
+</html>

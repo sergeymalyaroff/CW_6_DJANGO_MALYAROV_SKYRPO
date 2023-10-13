@@ -2,7 +2,9 @@ from django.shortcuts import render
 from .models import BlogPost
 from newsletters.models import Newsletter
 import random
+from django.views.decorators.cache import cache_page
 
+@cache_page(60 * 15)  # Кеширование на 15 минут
 def homepage(request):
     """
     Главная страница сайта.
@@ -47,6 +49,7 @@ def blog_post_detail(request, post_id):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 
+@cache_page(60 * 15)  # Кеширование на 15 минут
 def blog_list(request):
     """Отображает список всех статей блога."""
     posts = BlogPost.objects.all()

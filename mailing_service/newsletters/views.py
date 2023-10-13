@@ -3,6 +3,10 @@
 from django.shortcuts import render
 from .models import Newsletter, Subscription, Client
 from blog.models import BlogPost
+from django.views.decorators.cache import cache_page
+
+@cache_page(60 * 15)  # Кеширование на 15 минут
+
 
 def newsletter_list(request):
     """
@@ -11,6 +15,8 @@ def newsletter_list(request):
     newsletters = Newsletter.objects.all()
     return render(request, 'newsletters/newsletter_list.html', {'newsletters': newsletters})
 
+
+@cache_page(60 * 15)  # Кеширование на 15 минут
 def index(request):
     """
     Главная страница сайта.
