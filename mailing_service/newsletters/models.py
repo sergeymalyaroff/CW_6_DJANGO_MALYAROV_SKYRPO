@@ -31,7 +31,7 @@ class Newsletter(models.Model):
     frequency = models.CharField(max_length=10, choices=FREQUENCIES)
     STATUSES = [('completed', 'Completed'), ('created', 'Created'), ('started', 'Started')]
     status = models.CharField(max_length=10, choices=STATUSES)
-
+    is_active = models.BooleanField(default=True)
 
 class Message(models.Model):
     """
@@ -60,6 +60,19 @@ class NewsletterLog(models.Model):
     server_response = models.TextField(blank=True)
 
 
+
 def process_newsletters():
     #  код для обработки рассылок
     pass
+
+
+class Subscription(models.Model):
+    """
+    Модель подписки клиента на рассылку.
+
+    Поля:
+    - user: ссылка на клиента.
+    - newsletter: ссылка на рассылку.
+    """
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    newsletter = models.ForeignKey(Newsletter, on_delete=models.CASCADE)

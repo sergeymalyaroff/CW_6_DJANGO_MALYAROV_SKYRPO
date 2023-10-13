@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Главная страница</h1>
+    <p>Всего рассылок: {{ total_newsletters }}</p>
+    <p>Активных рассылок: {{ active_newsletters }}</p>
+    <p>Уникальных клиентов: {{ unique_clients }}</p>
+
+    <h2>3 случайные статьи</h2>
+    {% for post in random_blog_posts %}
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content|truncatechars:100 }}</p>  <!-- Отображаем первые 100 символов статьи -->
+        <a href="{% url 'blog_post_detail' post.id %}">Читать далее</a>  <!-- Предполагая, что у вас есть представление для детального просмотра статьи с именем 'blog_post_detail' -->
+    {% endfor %}
+{% endblock %}

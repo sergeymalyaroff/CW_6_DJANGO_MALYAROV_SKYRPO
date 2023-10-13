@@ -19,11 +19,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from blog import views as blog_views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # URL для админ-панели Django
     path('', include('newsletters.urls')),  # URL для приложения newsletters
     path('accounts/', include('allauth.urls')), #регистрация пользователей
     path('users/', include('users.urls')),  # маршруты из приложения users
+    path('', blog_views.homepage, name='homepage'), #путь к главной странице
 
 ]
