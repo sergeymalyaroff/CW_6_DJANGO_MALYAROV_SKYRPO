@@ -1,2 +1,9 @@
+*.pyc
+*.pyo
+__pycache__/
+*.sqlite3
 *.env
-*.secret
+*.log
+*.egg-info/
+dist/
+build/

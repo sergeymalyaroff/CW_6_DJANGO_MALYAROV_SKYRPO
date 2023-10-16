@@ -27,7 +27,7 @@ cd CW_6_DJANGO_MALYAROV_SKYRPO
 Установите необходимые зависимости:
 bash
 Copy code
-pip install -r requirements.txt
+poetry install -r requirements.txt
 Примените миграции:
 bash
 Copy code
